@@ -1,4 +1,4 @@
-package com.coolweather.app;
+package com.mangoweather.app;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,13 +20,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.coolweather.app.db.CoolWeatherDB;
-import com.coolweather.app.model.City;
-import com.coolweather.app.model.County;
-import com.coolweather.app.model.Province;
-import com.coolweather.app.util.HttpCallbackListener;
-import com.coolweather.app.util.HttpUtil;
-import com.coolweather.app.util.Utility;
+import com.mangoweather.app.db.CoolWeatherDB;
+import com.mangoweather.app.model.City;
+import com.mangoweather.app.model.County;
+import com.mangoweather.app.model.Province;
+import com.mangoweather.app.util.HttpCallbackListener;
+import com.mangoweather.app.util.HttpUtil;
+import com.mangoweather.app.util.Utility;
 
 public class ChooseAreaActivity extends Activity {
 
@@ -82,9 +82,9 @@ public class ChooseAreaActivity extends Activity {
 			return;
 		}
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.choose_area);
-		listView = (ListView) findViewById(R.id.list_view);
-		titleText = (TextView) findViewById(R.id.title_text);
+		setContentView(com.mangoweather.app.R.layout.choose_area);
+		listView = (ListView) findViewById(com.mangoweather.app.R.id.list_view);
+		titleText = (TextView) findViewById(com.mangoweather.app.R.id.title_text);
 		adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dataList);
 		listView.setAdapter(adapter);
 		coolWeatherDB = CoolWeatherDB.getInstance(this);

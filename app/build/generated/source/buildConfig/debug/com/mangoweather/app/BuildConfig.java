@@ -1,7 +1,7 @@
 /**
  * Automatically generated file. DO NOT MODIFY
  */
-package com.coolweather.app;
+package com.mangoweather.app;
 
 public final class BuildConfig {
   public static final boolean DEBUG = Boolean.parseBoolean("true");

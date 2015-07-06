@@ -1,4 +1,4 @@
-package com.coolweather.app;
+package com.mangoweather.app;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -13,14 +13,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.coolweather.app.service.AutoUpdateService;
-import com.coolweather.app.util.HttpCallbackListener;
-import com.coolweather.app.util.HttpUtil;
-import com.coolweather.app.util.Utility;
+import com.mangoweather.app.service.AutoUpdateService;
+import com.mangoweather.app.util.HttpCallbackListener;
+import com.mangoweather.app.util.HttpUtil;
+import com.mangoweather.app.util.Utility;
 
 public class WeatherActivity extends Activity implements OnClickListener{
 
@@ -74,7 +73,7 @@ public class WeatherActivity extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.weather_layout);
+		setContentView(com.mangoweather.app.R.layout.weather_layout);
         initView();
 
 
@@ -95,29 +94,29 @@ public class WeatherActivity extends Activity implements OnClickListener{
 
     private void initView() {
         // 初始化各控件
-        weatherInfoLayout = (RelativeLayout) findViewById(R.id.weather_info_layout);
-        cityNameText = (TextView) findViewById(R.id.city_name);
-        publishText = (TextView) findViewById(R.id.publish_text);
-        weatherDespText = (TextView) findViewById(R.id.weather_desp);
-        temp1Text = (TextView) findViewById(R.id.temp1);
-        temp2Text = (TextView) findViewById(R.id.temp2);
-        currentDateText = (TextView) findViewById(R.id.current_date);
-        switchCity = (Button) findViewById(R.id.switch_city);
-        imageViewDes = (ImageView) findViewById(R.id.imageViewDes);
-		refreshWeather = (Button) findViewById(R.id.refresh_weather);
+        weatherInfoLayout = (RelativeLayout) findViewById(com.mangoweather.app.R.id.weather_info_layout);
+        cityNameText = (TextView) findViewById(com.mangoweather.app.R.id.city_name);
+        publishText = (TextView) findViewById(com.mangoweather.app.R.id.publish_text);
+        weatherDespText = (TextView) findViewById(com.mangoweather.app.R.id.weather_desp);
+        temp1Text = (TextView) findViewById(com.mangoweather.app.R.id.temp1);
+        temp2Text = (TextView) findViewById(com.mangoweather.app.R.id.temp2);
+        currentDateText = (TextView) findViewById(com.mangoweather.app.R.id.current_date);
+        switchCity = (Button) findViewById(com.mangoweather.app.R.id.switch_city);
+        imageViewDes = (ImageView) findViewById(com.mangoweather.app.R.id.imageViewDes);
+		refreshWeather = (Button) findViewById(com.mangoweather.app.R.id.refresh_weather);
 //        alarmManage = (ImageButton) findViewById(R.id.alarmManage);
     }
 
     @Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.switch_city:
+		case com.mangoweather.app.R.id.switch_city:
 			Intent intent = new Intent(this, ChooseAreaActivity.class);
 			intent.putExtra("from_weather_activity", true);
 			startActivity(intent);
 			finish();
 			break;
-		case R.id.refresh_weather:
+		case com.mangoweather.app.R.id.refresh_weather:
 			publishText.setText("同步中...");
 			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 			String weatherCode = prefs.getString("weather_code", "");
@@ -202,31 +201,31 @@ public class WeatherActivity extends Activity implements OnClickListener{
         Log.d(TAG, "img>"+img);
         switch (Integer.parseInt(img)) {
             case 0:
-                imageViewDes.setImageResource(R.drawable.d00);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d00);
                 break;
             case 2:
-                imageViewDes.setImageResource(R.drawable.d02);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d02);
                 break;
             case 3:
-                imageViewDes.setImageResource(R.drawable.d04);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d04);
                 break;
             case 4:
-                imageViewDes.setImageResource(R.drawable.d04);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d04);
                 break;
             case 5:
-                imageViewDes.setImageResource(R.drawable.d05);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d05);
                 break;
             case 6:
-                imageViewDes.setImageResource(R.drawable.d06);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d06);
                 break;
             case 7:
-                imageViewDes.setImageResource(R.drawable.d07);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d07);
                 break;
             case 8:
-                imageViewDes.setImageResource(R.drawable.d08);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d08);
                 break;
             case 9:
-                imageViewDes.setImageResource(R.drawable.d09);
+                imageViewDes.setImageResource(com.mangoweather.app.R.drawable.d09);
                 break;
             default:
                 break;

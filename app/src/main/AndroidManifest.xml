@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.coolweather.app"
+    package="com.mangoweather.app"
     android:versionCode="2"
     android:versionName="2.0" >
 
@@ -22,7 +22,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".ChooseAreaActivity"
+            android:name="com.mangoweather.app.ChooseAreaActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,13 +30,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WeatherActivity" >
+        <activity android:name="com.mangoweather.app.WeatherActivity" >
         </activity>
 
-        <service android:name="com.coolweather.app.service.AutoUpdateService" >
+        <service android:name="com.mangoweather.app.service.AutoUpdateService" >
         </service>
 
-        <receiver android:name="com.coolweather.app.receiver.AutoUpdateReceiver" >
+        <receiver android:name="com.mangoweather.app.receiver.AutoUpdateReceiver" >
         </receiver>
 
         <activity

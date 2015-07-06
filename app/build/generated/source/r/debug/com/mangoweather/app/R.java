@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.coolweather.app;
+package com.mangoweather.app;
 
 public final class R {
     public static final class attr {
