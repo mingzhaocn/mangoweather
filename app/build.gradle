@@ -4,7 +4,7 @@ android {
     compileSdkVersion 14
     buildToolsVersion "23.0.0 rc2"
     defaultConfig {
-        applicationId "com.coolweather.app"
+        applicationId "com.mangoweather.app"
         minSdkVersion 14
         targetSdkVersion 19
     }
@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:18.0.0'
     compile files('libs/YoumiSdk_v4.06_2013-11-18.jar')
+    compile 'com.android.support:support-v4:22.2.0'
 }
