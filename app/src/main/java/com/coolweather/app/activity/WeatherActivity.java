@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -56,23 +57,21 @@ public class WeatherActivity extends Activity implements OnClickListener{
 	 * 更新天气按钮
 	 */
 	private Button refreshWeather;
-	
+
+	/**
+	 *闹钟跳转
+	 */
+	private ImageButton alarmManage;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.weather_layout);
-		// 初始化各控件
-		weatherInfoLayout = (LinearLayout) findViewById(R.id.weather_info_layout);
-		cityNameText = (TextView) findViewById(R.id.city_name);
-		publishText = (TextView) findViewById(R.id.publish_text);
-		weatherDespText = (TextView) findViewById(R.id.weather_desp);
-		temp1Text = (TextView) findViewById(R.id.temp1);
-		temp2Text = (TextView) findViewById(R.id.temp2);
-		currentDateText = (TextView) findViewById(R.id.current_date);
-		switchCity = (Button) findViewById(R.id.switch_city);
-		refreshWeather = (Button) findViewById(R.id.refresh_weather);
-		String countyCode = getIntent().getStringExtra("county_code");
+        initView();
+
+
+        String countyCode = getIntent().getStringExtra("county_code");
 		if (!TextUtils.isEmpty(countyCode)) {
 			// 有县级代号时就去查询天气
 			publishText.setText("同步中...");
@@ -86,8 +85,22 @@ public class WeatherActivity extends Activity implements OnClickListener{
 		switchCity.setOnClickListener(this);
 		refreshWeather.setOnClickListener(this);
 	}
-	
-	@Override
+
+    private void initView() {
+        // 初始化各控件
+        weatherInfoLayout = (LinearLayout) findViewById(R.id.weather_info_layout);
+        cityNameText = (TextView) findViewById(R.id.city_name);
+        publishText = (TextView) findViewById(R.id.publish_text);
+        weatherDespText = (TextView) findViewById(R.id.weather_desp);
+        temp1Text = (TextView) findViewById(R.id.temp1);
+        temp2Text = (TextView) findViewById(R.id.temp2);
+        currentDateText = (TextView) findViewById(R.id.current_date);
+        switchCity = (Button) findViewById(R.id.switch_city);
+        refreshWeather = (Button) findViewById(R.id.refresh_weather);
+        alarmManage = (ImageButton) findViewById(R.id.alarmManage);
+    }
+
+    @Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.switch_city:
@@ -104,7 +117,10 @@ public class WeatherActivity extends Activity implements OnClickListener{
 				queryWeatherInfo(weatherCode);
 			}
 			break;
-		default:
+            case R.id.alarmManage:
+
+                break;
+            default:
 			break;
 		}
 	}

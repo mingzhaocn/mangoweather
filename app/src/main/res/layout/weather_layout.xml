@@ -118,10 +118,10 @@
         </LinearLayout>
 
         <ImageButton
-            android:src="@drawable/home"
+            android:src="@drawable/ic_alarm_black_36dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
+            android:id="@+id/alarmManage"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true" />
     </RelativeLayout>
