@@ -1,22 +1,22 @@
-package com.coolweather.app.activity;
+package com.coolweather.app;
 
-import net.youmi.android.banner.AdSize;
-import net.youmi.android.banner.AdView;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.coolweather.app.R;
 import com.coolweather.app.service.AutoUpdateService;
 import com.coolweather.app.util.HttpCallbackListener;
 import com.coolweather.app.util.HttpUtil;
@@ -24,7 +24,9 @@ import com.coolweather.app.util.Utility;
 
 public class WeatherActivity extends Activity implements OnClickListener{
 
-	private LinearLayout weatherInfoLayout;
+    private static final String TAG = "WeatherActivity";
+
+	private RelativeLayout weatherInfoLayout;
 	/**
 	 * 用于显示城市名
 	 */
@@ -63,6 +65,11 @@ public class WeatherActivity extends Activity implements OnClickListener{
 	 */
 	private ImageButton alarmManage;
 
+	/**
+	 *天气图
+	 */
+	private ImageView imageViewDes;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -88,7 +95,7 @@ public class WeatherActivity extends Activity implements OnClickListener{
 
     private void initView() {
         // 初始化各控件
-        weatherInfoLayout = (LinearLayout) findViewById(R.id.weather_info_layout);
+        weatherInfoLayout = (RelativeLayout) findViewById(R.id.weather_info_layout);
         cityNameText = (TextView) findViewById(R.id.city_name);
         publishText = (TextView) findViewById(R.id.publish_text);
         weatherDespText = (TextView) findViewById(R.id.weather_desp);
@@ -96,8 +103,9 @@ public class WeatherActivity extends Activity implements OnClickListener{
         temp2Text = (TextView) findViewById(R.id.temp2);
         currentDateText = (TextView) findViewById(R.id.current_date);
         switchCity = (Button) findViewById(R.id.switch_city);
-        refreshWeather = (Button) findViewById(R.id.refresh_weather);
-        alarmManage = (ImageButton) findViewById(R.id.alarmManage);
+        imageViewDes = (ImageView) findViewById(R.id.imageViewDes);
+		refreshWeather = (Button) findViewById(R.id.refresh_weather);
+//        alarmManage = (ImageButton) findViewById(R.id.alarmManage);
     }
 
     @Override
@@ -117,9 +125,6 @@ public class WeatherActivity extends Activity implements OnClickListener{
 				queryWeatherInfo(weatherCode);
 			}
 			break;
-            case R.id.alarmManage:
-
-                break;
             default:
 			break;
 		}
@@ -192,6 +197,43 @@ public class WeatherActivity extends Activity implements OnClickListener{
 		weatherDespText.setText(prefs.getString("weather_desp", ""));
 		publishText.setText("今天" + prefs.getString("publish_time", "") + "发布");
 		currentDateText.setText(prefs.getString("current_date", ""));
+        String img1 = prefs.getString("img1", "d0.gif");
+        String img = img1.substring(1, 2);
+        Log.d(TAG, "img>"+img);
+        switch (Integer.parseInt(img)) {
+            case 0:
+                imageViewDes.setImageResource(R.drawable.d00);
+                break;
+            case 2:
+                imageViewDes.setImageResource(R.drawable.d02);
+                break;
+            case 3:
+                imageViewDes.setImageResource(R.drawable.d04);
+                break;
+            case 4:
+                imageViewDes.setImageResource(R.drawable.d04);
+                break;
+            case 5:
+                imageViewDes.setImageResource(R.drawable.d05);
+                break;
+            case 6:
+                imageViewDes.setImageResource(R.drawable.d06);
+                break;
+            case 7:
+                imageViewDes.setImageResource(R.drawable.d07);
+                break;
+            case 8:
+                imageViewDes.setImageResource(R.drawable.d08);
+                break;
+            case 9:
+                imageViewDes.setImageResource(R.drawable.d09);
+                break;
+            default:
+                break;
+        }
+
+
+
 		weatherInfoLayout.setVisibility(View.VISIBLE);
 		cityNameText.setVisibility(View.VISIBLE);
 		Intent intent = new Intent(this, AutoUpdateService.class);

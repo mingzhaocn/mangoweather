@@ -61,7 +61,7 @@ ADDED from AndroidManifest.xml:19:5
 		ADDED from AndroidManifest.xml:21:9
 	android:theme
 		ADDED from AndroidManifest.xml:23:9
-activity#com.coolweather.app.activity.ChooseAreaActivity
+activity#com.coolweather.app.ChooseAreaActivity
 ADDED from AndroidManifest.xml:24:9
 	android:label
 		ADDED from AndroidManifest.xml:26:13
@@ -77,7 +77,7 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:30:17
 	android:name
 		ADDED from AndroidManifest.xml:30:27
-activity#com.coolweather.app.activity.WeatherActivity
+activity#com.coolweather.app.WeatherActivity
 ADDED from AndroidManifest.xml:33:9
 	android:name
 		ADDED from AndroidManifest.xml:33:19

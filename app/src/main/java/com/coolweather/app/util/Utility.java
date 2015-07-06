@@ -98,9 +98,10 @@ public class Utility {
 			String weatherCode = weatherInfo.getString("cityid");
 			String temp1 = weatherInfo.getString("temp1");
 			String temp2 = weatherInfo.getString("temp2");
+			String img1 = weatherInfo.getString("img1");
 			String weatherDesp = weatherInfo.getString("weather");
 			String publishTime = weatherInfo.getString("ptime");
-			saveWeatherInfo(context, cityName, weatherCode, temp1, temp2,
+			saveWeatherInfo(context, cityName, weatherCode, temp1, temp2,img1,
 					weatherDesp, publishTime);
 		} catch (JSONException e) {
 			e.printStackTrace();
@@ -111,7 +112,7 @@ public class Utility {
 	 * 将服务器返回的所有天气信息存储到SharedPreferences文件中。
 	 */
 	public static void saveWeatherInfo(Context context, String cityName,
-			String weatherCode, String temp1, String temp2, String weatherDesp,
+			String weatherCode, String temp1, String temp2,String img1, String weatherDesp,
 			String publishTime) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年M月d日", Locale.CHINA);
 		SharedPreferences.Editor editor = PreferenceManager
@@ -121,6 +122,7 @@ public class Utility {
 		editor.putString("weather_code", weatherCode);
 		editor.putString("temp1", temp1);
 		editor.putString("temp2", temp2);
+		editor.putString("img1", img1);
 		editor.putString("weather_desp", weatherDesp);
 		editor.putString("publish_time", publishTime);
 		editor.putString("current_date", sdf.format(new Date()));

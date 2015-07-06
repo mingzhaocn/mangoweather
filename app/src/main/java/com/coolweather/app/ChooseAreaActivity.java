@@ -1,4 +1,4 @@
-package com.coolweather.app.activity;
+package com.coolweather.app;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.coolweather.app.R;
 import com.coolweather.app.db.CoolWeatherDB;
 import com.coolweather.app.model.City;
 import com.coolweather.app.model.County;
